@@ -12,6 +12,7 @@ App.views.tasks = Backbone.View.extend( {
 			var oTaskView = new App.views.task( { model: oModel } );
 			self.el.appendChild( oTaskView.render() );
 		} );
+		self = null;
 		return this.el;
 	}
 } );

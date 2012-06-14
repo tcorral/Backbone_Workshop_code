@@ -1,6 +1,6 @@
 App.views = App.views || {};
 App.views.main = Backbone.View.extend( {
-	el: document.getElementById( "todo_form" ), //Los events se delegan
+	el: document.getElementById( "todo_form" ),
 	events: {
 		'click .input_send': 'addTask',
 		'click #clearAll': 'clearAll'
@@ -10,7 +10,8 @@ App.views.main = Backbone.View.extend( {
 		new App.views.tasks( {collection: this.collection} );
 	},
 	addTask: function ( eEvent ) {
-		var oModel = new App.models.task( { description: document.getElementById( "input_txt" ).value } );
+		var oInput = document.getElementById( "input_txt" );
+		var oModel = new App.models.task( { description: oInput.value } );
 		var aFound = [];
 		if ( oModel.isValid() ) {
 			aFound = this.collection.where( oModel.attributes );
@@ -18,13 +19,15 @@ App.views.main = Backbone.View.extend( {
 				this.collection.add( oModel );
 			}
 			else {
-				alert( oModel.get( "description" ) + " ya existe en la colecci�n" );
+				alert( "'" + oModel.get( "description" ) + "' is already saved!" );
 			}
 		}
 		else {
-			alert( "no valido" );
+			alert( "Data is not valid!" );
 		}
+		oInput.value = '';
 		eEvent.preventDefault();
+		oInput = oModel = aFount = null;
 	},
 	clearAll: function ( eEvent ) {
 		this.collection.reset();

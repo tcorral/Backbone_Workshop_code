@@ -4,6 +4,6 @@ App.router.main = Backbone.Router.extend( {
 		'': 'home'
 	},
 	home: function () {
-		// Carga la vista principal
+		// Load the main view.
 	}
 } );

@@ -24,14 +24,15 @@ App.views.task = Backbone.View.extend( {
 			this.el.className = 'done';
 		}
 		this.model.set( { 'finished': bFinished } );
+		bFinished = null;
 	},
 	edit: function ( eEvent ) {
 		this.el.innerHTML = this.edit_template( this.model.toJSON() );
 	},
 	save: function ( eEvent ) {
 		var oInput = eEvent.target.parentNode.getElementsByTagName( "input" )[0];
-
 		this.model.set( { 'description': oInput.value } );
+		oInput = null;
 	},
 	cancel: function ( eEvent ) {
 		this.render();

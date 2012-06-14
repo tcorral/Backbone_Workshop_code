@@ -5,7 +5,7 @@ App.views.main = Backbone.View.extend( {
 		'click .input_send': 'addTask'
 	},
 	addTask: function ( eEvent ) {
-		alert( "A�adir una tarea" );
+		alert( "Add a new task." );
 		eEvent.preventDefault();
 	}
 } );

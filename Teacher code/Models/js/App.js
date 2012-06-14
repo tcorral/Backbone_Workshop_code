@@ -1,2 +1,2 @@
+// Namespace.
 var App = {};
-App.globals = {};
