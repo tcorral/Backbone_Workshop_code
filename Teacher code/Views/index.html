@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5: ToDo Application Using Backbone.js</title>
+	<link type="text/css" href="skin/light/css/style.css" rel="stylesheet" media="all" id="skin"/>
+</head>
+<body>
+	<form id="todo_form">
+		<div class="todo_cnt">
+			<div class="todo_head">
+				<h1>HTML5: ToDo Application Using Backbone.js</h1>
+			</div>
+			<div class="todo_add">
+				<p>Add New Item:</p>
+				<input type="text" class="input_txt" />
+				<input type="submit" value="Add" class="input_send" />
+			</div>
+			<ul id="todo_list">
+			</ul>
+			<div>
+				<p><a title="Will remove all items!" id='clearAll' href="#">I hate this list!</a></p>
+			</div>
+		</div>
+	</form>	
+	<!-- Dependencies of Backbone.js -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/libs/underscore.js"></script>
+	<!-- Backbone.js import -->
+	<script type="text/javascript" src="js/libs/backbone.js"></script>	
+	<!-- Application code-->
+	<script type="text/javascript" src="js/App.js"></script>
+	<!-- First of all add the views -->
+	<script type="text/javascript" src="js/views/main.js"></script>
+	<!-- Next to add are the routes -->
+	<script type="text/javascript" src="js/routes/main.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			new App.router.main();
+			Backbone.history.start();
+		});
+	</script>
+</body>
+</html>
